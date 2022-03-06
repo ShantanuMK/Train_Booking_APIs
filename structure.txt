@@ -1,0 +1,33 @@
+
+SCHEMAS:
+users -> userid, username, name, address, dob,
+seates -> coach-id, train-id, coach-type, coach-num
+dates -> bookingid, coach-id, seat-num, passenger-name, passenger-age, date
+bookings -> bookingid, userid, coach-id, seats-num,, datetime
+
+
+APIs
+
+admin:
+add coaches to train - post method
+view allseates in train/coach - get method
+remove coaches in train - delete method
+update details of coaches in train - put method
+
+
+users:
+book seates of specific train: post method
+view avaliable seats in coach
+book multiple seats
+
+
+advance:
+api to fetch all avaliable seates
+api to fetch all booked seats
+
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+04-Mar22 01:59:25 - ERROR - 'NoneType' object has no attribute '__dict__'
+Traceback (most recent call last):
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./router/admin.py", line 51, in view_all_seats
+    return Admin.view_all_seats(train_id, coach_type, coach_num, db=db)
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/admin.py", line 49, in view_all_seats
+    raise e
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/admin.py", line 37, in view_all_seats
+    print(booked.__dict__)
+AttributeError: 'NoneType' object has no attribute '__dict__'
+04-Mar22 03:20:49 - ERROR - 'BookSeat' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./router/user.py", line 68, in book_seats
+    return User.book_seats(train_id, data, db=db)
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 59, in book_seats
+    raise e
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 49, in book_seats
+    print(coach["coach_type"])
+TypeError: 'BookSeat' object is not subscriptable
+04-Mar22 03:26:12 - ERROR - 'SeatPassenger' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./router/user.py", line 68, in book_seats
+    return User.book_seats(train_id, data, db=db)
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 61, in book_seats
+    raise e
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 51, in book_seats
+    print(coach.seats[1]["passenger_name"])
+TypeError: 'SeatPassenger' object is not subscriptable
+04-Mar22 04:01:18 - ERROR - (sqlite3.OperationalError) no such column: users.username
+[SQL: SELECT users.userid AS users_userid, users.username AS users_username, users.name AS users_name, users.age_yr AS users_age_yr, users.address AS users_address 
+FROM users 
+WHERE users.userid = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('shantanu', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: users.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./router/user.py", line 68, in book_seats
+    return User.book_seats(userid, train_id, travel_date, data, db=db)
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 82, in book_seats
+    raise e
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 45, in book_seats
+    user_present = db.query(UsersModel).filter(UsersModel.userid == userid).first()
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2763, in first
+    return self.limit(1)._iter().first()
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result = self.session.execute(
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1583, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1452, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1995, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1771, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.username
+[SQL: SELECT users.userid AS users_userid, users.username AS users_username, users.name AS users_name, users.age_yr AS users_age_yr, users.address AS users_address 
+FROM users 
+WHERE users.userid = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('shantanu', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+04-Mar22 04:03:42 - ERROR - 'str' object is not callable
+Traceback (most recent call last):
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./router/user.py", line 44, in register
+    return User.register(username, name, age_yr, address, db=db)
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 21, in register
+    raise e
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 16, in register
+    user = address(username=username, name=name, age_yr=age_yr, address=address)
+TypeError: 'str' object is not callable
+04-Mar22 04:07:41 - ERROR - list index out of range
+Traceback (most recent call last):
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./router/user.py", line 68, in book_seats
+    return User.book_seats(userid, train_id, travel_date, data, db=db)
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 83, in book_seats
+    raise e
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 55, in book_seats
+    print(coach.seats[1].passenger_name)
+IndexError: list index out of range
+04-Mar22 04:08:03 - ERROR - Instance '<BookingsModel at 0x103dfa3d0>' is not persistent within this Session
+Traceback (most recent call last):
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./router/user.py", line 68, in book_seats
+    return User.book_seats(userid, train_id, travel_date, data, db=db)
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 83, in book_seats
+    raise e
+  File "/Users/shantanukardile/Desktop/TechPrescient/irctc/app/./internal/user.py", line 63, in book_seats
+    db.refresh(temp_booking)
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2272, in refresh
+    self._expire_state(state, attribute_names)
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2381, in _expire_state
+    self._validate_persistent(state)
+  File "/Users/shantanukardile/.local/share/virtualenvs/bmi-7K-b1uEB/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3076, in _validate_persistent
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<BookingsModel at 0x103dfa3d0>' is not persistent within this Session
